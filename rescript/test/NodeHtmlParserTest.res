@@ -103,4 +103,38 @@ describe("test HtmlElement", () => {
       },
     )
   })
+
+  describe("test closest", () => {
+    it(
+      "test 1",
+      () => {
+        let root = parse(`<body>   <div> dsak0d</div> <div>d09asm0mds0<a>Hello</a></div>  </body>`)
+        let given = root->HtmlElement.querySelector("a")->Result.getExn->Option.getExn
+        let result =
+          given->HtmlElement.closest("body")->Result.getExn->Option.getExn->HtmlElement.toString
+        let nominal = `<body>   <div> dsak0d</div> <div>d09asm0mds0<a>Hello</a></div>  </body>`
+        Assert.equal(nominal, result)
+      },
+    )
+
+    it(
+      "test 2",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result = given->HtmlElement.querySelector("a")->Result.getExn
+        let nominal = None
+        Assert.equal(nominal, result)
+      },
+    )
+
+    it(
+      "test 3",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result = given->HtmlElement.querySelector("!das?")
+        let nominal = Error("Unmatched selector: ?")
+        Assert.deep_equal(nominal, result)
+      },
+    )
+  })
 })

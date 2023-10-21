@@ -81,6 +81,24 @@ module HtmlElement = {
     | _ => Error("Unknown error")
     }
 
+  let closest = (htmlElement: htmlElement, selector: string): result<option<htmlElement>, string> =>
+    try {
+      let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
+      function (htmlEl, selector) {
+        const res = htmlEl.closest(selector);
+        return res;
+      }
+    `)
+      Ok(qsa(htmlElement, selector))
+    } catch {
+    | Js.Exn.Error(e) =>
+      switch Js.Exn.message(e) {
+      | Some(s) => Error(s)
+      | None => Error("")
+      }
+    | _ => Error("Unknown error")
+    }
+
   let toString: htmlElement => string = %raw(`
   function(htmlEl) {
     return htmlEl.toString();
