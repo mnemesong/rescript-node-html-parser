@@ -14,5 +14,8 @@
   "suffix": ".bs.js",
   "bs-dependencies": [
     "rescript-mocha"
-  ]
+  ],
+  "warnings": {
+    "number": "-26"
+  }
 }
