@@ -1,6 +1,6 @@
 {
   "name": "rescript-node-html-parser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "rescript api for node-html-parser package",
   "main": "index.js",
   "scripts": {
