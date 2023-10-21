@@ -153,4 +153,22 @@ describe("test HtmlElement", () => {
       },
     )
   })
+
+  describe("test setAttributesMut", () => {
+    it(
+      "test 1",
+      () => {
+        let given = parse(` <div> <div>  8hsad</div><div>mda0s</div> </div>`)
+        let result =
+          given
+          ->HtmlElement.querySelector("div")
+          ->Result.getExn
+          ->Option.getExn
+          ->HtmlElement.setAttributesMut([("a1", "v1"), ("a2", "val2")])
+          ->HtmlElement.toString
+        let nominal = `<div a1="v1" a2="val2"> <div>  8hsad</div><div>mda0s</div> </div>`
+        Assert.equal(nominal, result)
+      },
+    )
+  })
 })

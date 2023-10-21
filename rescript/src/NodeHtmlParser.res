@@ -131,4 +131,25 @@ module HtmlElement = {
       }
     | _ => Error("Unknown error")
     }
+
+  let setAttributesMut = (
+    htmlElement: htmlElement,
+    attrs: array<(string, string)>,
+  ): htmlElement => {
+    let buildAttrObj: array<(string, string)> => {..} = %raw(`
+    function (attrs) {
+      let res = {};
+      attrs.forEach( a => {
+        res[a[0]] = a[1];
+      } );
+      return res;
+    }
+    `)
+    let setAttr: (htmlElement, {..}) => htmlElement = %raw(`
+    function (htmlEl, attrs) {
+      return htmlEl.setAttributes(attrs);
+    }
+    `)
+    setAttr(htmlElement, buildAttrObj(attrs))
+  }
 }
