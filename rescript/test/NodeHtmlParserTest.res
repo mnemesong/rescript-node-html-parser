@@ -171,4 +171,40 @@ describe("test HtmlElement", () => {
       },
     )
   })
+
+  describe("test replaceWithMut", () => {
+    it(
+      "test 1",
+      () => {
+        let given = parse(` <div> <div id="idEl">  8hsad</div><div>mda0s</div> </div>`)
+        let proc =
+          given
+          ->HtmlElement.querySelector("#idEl")
+          ->Result.getExn
+          ->Option.getExn
+          ->HtmlElement.replaceWithMut("<a>Hello</a>")
+        let result = given->HtmlElement.toString
+        let nominal = ` <div> <a>Hello</a><div>mda0s</div> </div>`
+        Assert.equal(nominal, result)
+      },
+    )
+  })
+
+  describe("test removeMut", () => {
+    it(
+      "test 1",
+      () => {
+        let given = parse(` <div> <div id="idEl">  8hsad</div><div>mda0s</div> </div>`)
+        let proc =
+          given
+          ->HtmlElement.querySelector("#idEl")
+          ->Result.getExn
+          ->Option.getExn
+          ->HtmlElement.removeMut
+        let result = given->HtmlElement.toString
+        let nominal = ` <div> <div>mda0s</div> </div>`
+        Assert.equal(nominal, result)
+      },
+    )
+  })
 })

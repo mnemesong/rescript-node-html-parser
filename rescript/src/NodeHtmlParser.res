@@ -152,4 +152,16 @@ module HtmlElement = {
     `)
     setAttr(htmlElement, buildAttrObj(attrs))
   }
+
+  let replaceWithMut: (htmlElement, string) => htmlElement = %raw(`
+  function (htmlEl, strs) {
+    return htmlEl.replaceWith(strs);
+  }
+  `)
+
+  let removeMut: htmlElement => htmlElement = %raw(`
+  function (htmlEl) {
+    return htmlEl.remove();
+  }
+  `)
 }
