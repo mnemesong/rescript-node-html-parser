@@ -47,6 +47,19 @@ module HtmlElement = {
     | _ => Error("Unknown error")
     }
 
+  let getElementsByTagName = (htmlElement: htmlElement, selector: string): array<htmlElement> => {
+    let qsa: (htmlElement, string) => array<htmlElement> = %raw(`
+      function (htmlEl, selector) {
+        const res = htmlEl.getElementsByTagName(selector);
+        if(!Array.isArray(res)) {
+          return [res];
+        }
+        return res;
+      }
+    `)
+    qsa(htmlElement, selector)
+  }
+
   let querySelector = (htmlElement: htmlElement, selector: string): result<
     option<htmlElement>,
     string,

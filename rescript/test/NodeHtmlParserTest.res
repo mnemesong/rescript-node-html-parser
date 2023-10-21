@@ -30,6 +30,16 @@ describe("test HtmlElement", () => {
         Assert.deep_equal(nominal, result)
       },
     )
+
+    it(
+      "test 2",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result = given->HtmlElement.querySelectorAll("!das?")
+        let nominal = Error("Unmatched selector: ?")
+        Assert.deep_equal(nominal, result)
+      },
+    )
   })
 
   describe("test quarySelector", () => {
@@ -54,6 +64,42 @@ describe("test HtmlElement", () => {
         let result = given->HtmlElement.querySelector("a")->Result.getExn
         let nominal = None
         Assert.equal(nominal, result)
+      },
+    )
+
+    it(
+      "test 3",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result = given->HtmlElement.querySelector("!das?")
+        let nominal = Error("Unmatched selector: ?")
+        Assert.deep_equal(nominal, result)
+      },
+    )
+  })
+
+  describe("test getElementsByTagName", () => {
+    it(
+      "test 1",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result =
+          given
+          ->HtmlElement.querySelectorAll("div")
+          ->Result.map(r => r->Array.map(r => r->HtmlElement.toString))
+          ->Result.getExn
+        let nominal = [`<div> dsak0d</div>`, `<div>d09asm0mds0</div>`]
+        Assert.deep_equal(nominal, result)
+      },
+    )
+
+    it(
+      "test 2",
+      () => {
+        let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+        let result = given->HtmlElement.getElementsByTagName("")
+        let nominal = []
+        Assert.deep_equal(nominal, result)
       },
     )
   })
