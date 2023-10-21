@@ -2,6 +2,16 @@
 rescript api for node-html-parser package
 
 
+## Example of usage
+```rescript
+let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
+let result =
+  given->querySelector("div")->Result.map(r => r->Option.getExn->toString)->Result.getExn
+let nominal = `<div> dsak0d</div>`
+Assert.equal(nominal, result)
+```
+
+
 ## Api
 ```rescript
 type htmlElement
@@ -38,9 +48,11 @@ let replaceWithMut: (htmlElement, string) => htmlElement = ...
 let removeMut: htmlElement => htmlElement = ...
 ```
 
+
 ## Author
 Anatoly Starodubstev
 tostar74@mail.ru
+
 
 ## License
 MIT
