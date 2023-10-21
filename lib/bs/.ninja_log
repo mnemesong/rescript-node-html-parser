@@ -9,3 +9,13 @@
 83	125	13586972012994357	rescript/test/NodeHtmlParserTest.cmj	a14d2cbd613fca89
 83	125	13586972012994357	rescript/test/NodeHtmlParserTest.cmi	a14d2cbd613fca89
 83	125	13586972012994357	../js/rescript/test/NodeHtmlParserTest.bs.js	a14d2cbd613fca89
+1	21	13586973681135795	rescript/test/NodeHtmlParserTest.ast	31ecc9cca166417d
+3	31	13586973681235801	rescript/src/NodeHtmlParser.ast	16d97e97531b1c6b
+22	34	13586973681135795	rescript/test/NodeHtmlParserTest.d	d3b3e981fac8b496
+31	40	13586973681235801	rescript/src/NodeHtmlParser.d	dce6290da188492f
+40	76	13586973681675826	rescript/src/NodeHtmlParser.cmj	b711d2615698f1e1
+40	76	13586973681675826	rescript/src/NodeHtmlParser.cmi	b711d2615698f1e1
+40	76	13586973681675826	../js/rescript/src/NodeHtmlParser.bs.js	b711d2615698f1e1
+76	118	13586973681665825	rescript/test/NodeHtmlParserTest.cmj	a14d2cbd613fca89
+76	118	13586973681665825	rescript/test/NodeHtmlParserTest.cmi	a14d2cbd613fca89
+76	118	13586973681665825	../js/rescript/test/NodeHtmlParserTest.bs.js	a14d2cbd613fca89
