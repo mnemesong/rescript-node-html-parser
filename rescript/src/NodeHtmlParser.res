@@ -4,6 +4,13 @@ const parser = require('node-html-parser');
 
 type htmlElement
 
+type where = [
+  | #beforebegin
+  | #afterbegin
+  | #beforeend
+  | #afterend
+]
+
 let parse: string => htmlElement = %raw(`
 function (str) {
   return parser.parse(str);
@@ -11,15 +18,15 @@ function (str) {
 `)
 
 module HtmlElement = {
-  let trimRight: htmlElement => htmlElement = %raw(`
+  let trimRightMut: htmlElement => htmlElement = %raw(`
   function (htmlEl) {
-    return parser.parse(htmlEl.toString()).trimRight();
+    return htmlEl.trimRight();
   }
   `)
 
-  let removeWhitespace: htmlElement => htmlElement = %raw(`
+  let removeWhitespaceMut: htmlElement => htmlElement = %raw(`
   function (htmlEl) {
-    return parser.parse(htmlEl.toString()).removeWhitespace();
+    return htmlEl.removeWhitespace();
   }
   `)
 
@@ -104,4 +111,24 @@ module HtmlElement = {
     return htmlEl.toString();
   }
   `)
+
+  let insertAdjacentHtmlMut = (htmlElement: htmlElement, where: where, html: string): result<
+    htmlElement,
+    string,
+  > =>
+    try {
+      let res: (htmlElement, where, string) => htmlElement = %raw(`
+      function (htmlEl, where, html) {
+        return htmlEl.insertAdjacentHTML(where, html);
+      }
+      `)
+      Ok(res(htmlElement, where, html))
+    } catch {
+    | Js.Exn.Error(e) =>
+      switch Js.Exn.message(e) {
+      | Some(s) => Error(s)
+      | None => Error("")
+      }
+    | _ => Error("Unknown error")
+    }
 }

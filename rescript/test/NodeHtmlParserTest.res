@@ -4,12 +4,12 @@ open Mocha
 open Belt
 
 describe("test HtmlElement", () => {
-  describe("test removeWhitespace", () => {
+  describe("test removeWhitespaceMut", () => {
     it(
       "test 1",
       () => {
         let given = parse(`   <div> dsak0d</div>   `)
-        let result = HtmlElement.removeWhitespace(given)->HtmlElement.toString
+        let result = HtmlElement.removeWhitespaceMut(given)->HtmlElement.toString
         let nominal = `<div> dsak0d</div>`
         Assert.equal(nominal, result)
       },
@@ -134,6 +134,22 @@ describe("test HtmlElement", () => {
         let result = given->HtmlElement.querySelector("!das?")
         let nominal = Error("Unmatched selector: ?")
         Assert.deep_equal(nominal, result)
+      },
+    )
+  })
+
+  describe("test insertAdjacentHtmlMut", () => {
+    it(
+      "test 1",
+      () => {
+        let given = parse(` <div> <div>  8hsad</div><div>mda0s</div> </div>`)
+        let result =
+          given
+          ->HtmlElement.insertAdjacentHtmlMut(#afterbegin, `<b>sadas</b>`)
+          ->Result.getExn
+          ->HtmlElement.toString
+        let nominal = `<b>sadas</b> <div> <div>  8hsad</div><div>mda0s</div> </div>`
+        Assert.equal(nominal, result)
       },
     )
   })
