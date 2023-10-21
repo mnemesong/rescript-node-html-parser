@@ -1,0 +1,30 @@
+{
+  "name": "rescript-node-html-parser",
+  "version": "0.0.1",
+  "description": "rescript api for node-html-parser package",
+  "main": "index.js",
+  "scripts": {
+    "res:build": "rescript",
+    "res:dev": "rescript build -w",
+    "test:unit": "mocha ./lib/js/rescript/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnemesong/rescript-node-html-parser.git"
+  },
+  "keywords": [],
+  "author": "Anatoly Starodubtsev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mnemesong/rescript-node-html-parser/issues"
+  },
+  "homepage": "https://github.com/mnemesong/rescript-node-html-parser#readme",
+  "devDependencies": {
+    "rescript": "^10.1.4",
+    "rescript-mocha": "*",
+    "mocha": "*"
+  },
+  "dependencies": {
+    "node-html-parser": "*"
+  }
+}

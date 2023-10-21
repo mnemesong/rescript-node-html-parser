@@ -1,0 +1,14 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o NodeHtmlParserTest.cmi : cp ..\bs\rescript\test\NodeHtmlParserTest.cmi
+o NodeHtmlParserTest.cmj : cp ..\bs\rescript\test\NodeHtmlParserTest.cmj
+o NodeHtmlParserTest.cmt : cp ..\bs\rescript\test\NodeHtmlParserTest.cmt
+o NodeHtmlParserTest.res : cp ..\..\rescript\test\NodeHtmlParserTest.res
+o NodeHtmlParser.cmi : cp ..\bs\rescript\src\NodeHtmlParser.cmi
+o NodeHtmlParser.cmj : cp ..\bs\rescript\src\NodeHtmlParser.cmj
+o NodeHtmlParser.cmt : cp ..\bs\rescript\src\NodeHtmlParser.cmt
+o NodeHtmlParser.res : cp ..\..\rescript\src\NodeHtmlParser.res
+build install.stamp : touch NodeHtmlParserTest.cmi NodeHtmlParserTest.cmj NodeHtmlParser.cmi NodeHtmlParser.cmj 
