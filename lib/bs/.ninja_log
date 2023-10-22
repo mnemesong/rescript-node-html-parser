@@ -34,3 +34,11 @@
 102	215	13586977517361204	rescript/test/NodeHtmlParserTest.cmj	afd81497931850ce
 102	215	13586977517361204	rescript/test/NodeHtmlParserTest.cmi	afd81497931850ce
 102	215	13586977517361204	../js/rescript/test/NodeHtmlParserTest.bs.js	afd81497931850ce
+1	183	13587708012012737	rescript/src/NodeHtmlParser.ast	f6bb9500ca6a4b11
+183	372	13587708012012737	rescript/src/NodeHtmlParser.d	dce6290da188492f
+372	647	13587708016602999	rescript/src/NodeHtmlParser.cmj	5acaaa0e48a7d12b
+372	647	13587708016602999	rescript/src/NodeHtmlParser.cmi	5acaaa0e48a7d12b
+372	647	13587708016602999	../js/rescript/src/NodeHtmlParser.bs.js	5acaaa0e48a7d12b
+648	760	13587708016562997	rescript/test/NodeHtmlParserTest.cmj	afd81497931850ce
+648	760	13587708016562997	rescript/test/NodeHtmlParserTest.cmi	afd81497931850ce
+648	760	13587708016562997	../js/rescript/test/NodeHtmlParserTest.bs.js	afd81497931850ce

@@ -160,3 +160,27 @@ function (htmlEl) {
   return htmlEl.remove();
 }
 `)
+
+let outerHtml: htmlElement => string = %raw(`
+function (htmlEl) {
+  return htmlEl.outerHTML;
+}
+`)
+
+let innerHtml: htmlElement => string = %raw(`
+function (htmlEl) {
+  return htmlEl.innerHTML;
+}
+`)
+
+let tagName: htmlElement => string = %raw(`
+function (htmlEl) {
+  return htmlEl.tagName;
+}
+`)
+
+let attributes: htmlElement => string = %raw(`
+function (htmlEl) {
+  return {...htmlEl.attributes};
+}
+`)
