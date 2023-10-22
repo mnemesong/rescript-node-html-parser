@@ -13,5 +13,15 @@ rule mij
   restat = 1
 o rescript\test\NodeHtmlParserTest.cmj rescript\test\NodeHtmlParserTest.cmi ..\js\rescript\test\NodeHtmlParserTest.bs.js : mij rescript\test\NodeHtmlParserTest.ast
 o rescript\src\NodeHtmlParser.ast : astj ..\..\rescript\src\NodeHtmlParser.res
-o rescript\src\NodeHtmlParser.d : deps rescript\src\NodeHtmlParser.ast
-o rescript\src\NodeHtmlParser.cmj rescript\src\NodeHtmlParser.cmi ..\js\rescript\src\NodeHtmlParser.bs.js : mij rescript\src\NodeHtmlParser.ast
+o rescript\src\NodeHtmlParser.d : deps rescript\src\NodeHtmlParser.ast rescript\src\NodeHtmlParser.iast
+o rescript\src\NodeHtmlParser.iast : astj ..\..\rescript\src\NodeHtmlParser.resi
+rule mi
+  command = "D:\rescript-projects\rescript-node-html-parser\node_modules\rescript\win32\bsc.exe" -I "rescript\src" -I "rescript\test" -I rescript -I "D:\rescript-projects\rescript-node-html-parser\node_modules\rescript-mocha\lib\ocaml"  -w -26 -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o rescript\src\NodeHtmlParser.cmi : mi rescript\src\NodeHtmlParser.iast
+rule mj
+  command = "D:\rescript-projects\rescript-node-html-parser\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I "rescript\src" -I "rescript\test" -I rescript -I "D:\rescript-projects\rescript-node-html-parser\node_modules\rescript-mocha\lib\ocaml"  -w -26 -bs-package-name rescript-node-html-parser -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o rescript\src\NodeHtmlParser.cmj ..\js\rescript\src\NodeHtmlParser.bs.js : mj rescript\src\NodeHtmlParser.ast rescript\src\NodeHtmlParser.cmi

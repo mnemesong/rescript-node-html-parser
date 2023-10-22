@@ -42,3 +42,12 @@
 648	760	13587708016562997	rescript/test/NodeHtmlParserTest.cmj	afd81497931850ce
 648	760	13587708016562997	rescript/test/NodeHtmlParserTest.cmi	afd81497931850ce
 648	760	13587708016562997	../js/rescript/test/NodeHtmlParserTest.bs.js	afd81497931850ce
+5	92	13588111602328708	rescript/src/NodeHtmlParser.iast	e5336242139ed8a
+1	322	13588111604718802	rescript/src/NodeHtmlParser.ast	f6bb9500ca6a4b11
+323	368	13588111604718802	rescript/src/NodeHtmlParser.d	1649fc0f58be909
+368	455	13588111605918870	rescript/src/NodeHtmlParser.cmi	cf04ba01f93043d2
+456	532	13588111605918870	rescript/src/NodeHtmlParser.cmj	764d67b53a67153b
+456	532	13588111605918870	../js/rescript/src/NodeHtmlParser.bs.js	764d67b53a67153b
+534	702	13588111605918870	rescript/test/NodeHtmlParserTest.cmj	afd81497931850ce
+534	702	13588111605918870	rescript/test/NodeHtmlParserTest.cmi	afd81497931850ce
+534	702	13588111605918870	../js/rescript/test/NodeHtmlParserTest.bs.js	afd81497931850ce

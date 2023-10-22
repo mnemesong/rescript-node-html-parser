@@ -11,4 +11,6 @@ o NodeHtmlParser.cmi : cp ..\bs\rescript\src\NodeHtmlParser.cmi
 o NodeHtmlParser.cmj : cp ..\bs\rescript\src\NodeHtmlParser.cmj
 o NodeHtmlParser.cmt : cp ..\bs\rescript\src\NodeHtmlParser.cmt
 o NodeHtmlParser.res : cp ..\..\rescript\src\NodeHtmlParser.res
+o NodeHtmlParser.resi : cp ..\..\rescript\src\NodeHtmlParser.resi
+o NodeHtmlParser.cmti : cp ..\bs\rescript\src\NodeHtmlParser.cmti
 build install.stamp : touch NodeHtmlParserTest.cmi NodeHtmlParserTest.cmj NodeHtmlParser.cmi NodeHtmlParser.cmj 

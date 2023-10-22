@@ -179,7 +179,7 @@ function (htmlEl) {
 }
 `)
 
-let attributes: htmlElement => string = %raw(`
+let attributes: htmlElement => {..} = %raw(`
 function (htmlEl) {
   return {...htmlEl.attributes};
 }
