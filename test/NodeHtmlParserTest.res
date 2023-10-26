@@ -36,8 +36,7 @@ describe("test HtmlElement", () => {
       () => {
         let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
         let result = given->querySelectorAll("!das?")
-        let nominal = Error("Unmatched selector: ?")
-        Assert.deep_equal(nominal, result)
+        Assert.ok(result->Result.isError)
       },
     )
   })
@@ -69,8 +68,7 @@ describe("test HtmlElement", () => {
       () => {
         let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
         let result = given->querySelector("!das?")
-        let nominal = Error("Unmatched selector: ?")
-        Assert.deep_equal(nominal, result)
+        Assert.ok(result->Result.isError)
       },
     )
   })
@@ -128,8 +126,7 @@ describe("test HtmlElement", () => {
       () => {
         let given = parse(`   <div> dsak0d</div> <div>d09asm0mds0</div>  `)
         let result = given->querySelector("!das?")
-        let nominal = Error("Unmatched selector: ?")
-        Assert.deep_equal(nominal, result)
+        Assert.ok(result->Result.isError)
       },
     )
   })

@@ -31,17 +31,17 @@ let trimRightMut: htmlElement => htmlElement
 
 let removeWhitespaceMut: htmlElement => htmlElement
 
-let querySelectorAll: (htmlElement, string) => result<array<htmlElement>, string>
+let querySelectorAll: (htmlElement, string) => result<array<htmlElement>, exn>
 
 let getElementsByTagName: (htmlElement, string) => array<htmlElement>
 
-let querySelector: (htmlElement, string) => result<option<htmlElement>, string>
+let querySelector: (htmlElement, string) => result<option<htmlElement>, exn>
 
-let closest: (htmlElement, string) => result<option<htmlElement>, string>
+let closest: (htmlElement, string) => result<option<htmlElement>, exn>
 
 let toString: htmlElement => string
 
-let insertAdjacentHtmlMut: (htmlElement, where, string) => result<htmlElement, string>
+let insertAdjacentHtmlMut: (htmlElement, where, string) => result<htmlElement, exn>
 
 let setAttributesMut: (htmlElement, array<(string, string)>) => htmlElement
 

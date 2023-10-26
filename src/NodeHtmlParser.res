@@ -31,9 +31,9 @@ function (htmlEl) {
 
 let querySelectorAll = (htmlElement: htmlElement, selector: string): result<
   array<htmlElement>,
-  string,
+  exn,
 > =>
-  try {
+  ResultExn.catchExn(() => {
     let qsa: (htmlElement, string) => array<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.querySelectorAll(selector);
@@ -42,16 +42,9 @@ let querySelectorAll = (htmlElement: htmlElement, selector: string): result<
       }
       return res;
     }
-  `)
-    Ok(qsa(htmlElement, selector))
-  } catch {
-  | Js.Exn.Error(e) =>
-    switch Js.Exn.message(e) {
-    | Some(s) => Error(s)
-    | None => Error("")
-    }
-  | _ => Error("Unknown error")
-  }
+    `)
+    qsa(htmlElement, selector)
+  })
 
 let getElementsByTagName = (htmlElement: htmlElement, selector: string): array<htmlElement> => {
   let qsa: (htmlElement, string) => array<htmlElement> = %raw(`
@@ -68,42 +61,28 @@ let getElementsByTagName = (htmlElement: htmlElement, selector: string): array<h
 
 let querySelector = (htmlElement: htmlElement, selector: string): result<
   option<htmlElement>,
-  string,
+  exn,
 > =>
-  try {
+  ResultExn.catchExn(() => {
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.querySelector(selector);
       return res;
     }
-  `)
-    Ok(qsa(htmlElement, selector))
-  } catch {
-  | Js.Exn.Error(e) =>
-    switch Js.Exn.message(e) {
-    | Some(s) => Error(s)
-    | None => Error("")
-    }
-  | _ => Error("Unknown error")
-  }
+    `)
+    qsa(htmlElement, selector)
+  })
 
-let closest = (htmlElement: htmlElement, selector: string): result<option<htmlElement>, string> =>
-  try {
+let closest = (htmlElement: htmlElement, selector: string): result<option<htmlElement>, exn> =>
+  ResultExn.catchExn(() => {
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.closest(selector);
       return res;
     }
-  `)
-    Ok(qsa(htmlElement, selector))
-  } catch {
-  | Js.Exn.Error(e) =>
-    switch Js.Exn.message(e) {
-    | Some(s) => Error(s)
-    | None => Error("")
-    }
-  | _ => Error("Unknown error")
-  }
+    `)
+    qsa(htmlElement, selector)
+  })
 
 let toString: htmlElement => string = %raw(`
 function(htmlEl) {
@@ -113,23 +92,16 @@ function(htmlEl) {
 
 let insertAdjacentHtmlMut = (htmlElement: htmlElement, where: where, html: string): result<
   htmlElement,
-  string,
+  exn,
 > =>
-  try {
+  ResultExn.catchExn(() => {
     let res: (htmlElement, where, string) => htmlElement = %raw(`
     function (htmlEl, where, html) {
       return htmlEl.insertAdjacentHTML(where, html);
     }
     `)
-    Ok(res(htmlElement, where, html))
-  } catch {
-  | Js.Exn.Error(e) =>
-    switch Js.Exn.message(e) {
-    | Some(s) => Error(s)
-    | None => Error("")
-    }
-  | _ => Error("Unknown error")
-  }
+    res(htmlElement, where, html)
+  })
 
 let setAttributesMut = (htmlElement: htmlElement, attrs: array<(string, string)>): htmlElement => {
   let buildAttrObj: array<(string, string)> => {..} = %raw(`
