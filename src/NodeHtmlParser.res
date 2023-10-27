@@ -67,7 +67,7 @@ let querySelector = (htmlElement: htmlElement, selector: string): result<
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.querySelector(selector);
-      return res;
+      return !!res ? res : undefined;
     }
     `)
     qsa(htmlElement, selector)
@@ -78,7 +78,7 @@ let closest = (htmlElement: htmlElement, selector: string): result<option<htmlEl
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.closest(selector);
-      return res;
+      return !!res ? res : undefined;
     }
     `)
     qsa(htmlElement, selector)

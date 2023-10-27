@@ -10,3 +10,7 @@
 107	143	13591624135558727	test/NodeHtmlParserTest.cmj	a962b4a334cc7158
 107	143	13591624135558727	test/NodeHtmlParserTest.cmi	a962b4a334cc7158
 107	143	13591624135558727	../js/test/NodeHtmlParserTest.bs.js	a962b4a334cc7158
+1	22	13591717878841523	src/NodeHtmlParser.ast	ece726c95f43a531
+22	67	13591717878841523	src/NodeHtmlParser.d	65746bb814a5f5da
+67	125	13591717878841523	src/NodeHtmlParser.cmj	bb02ee37c3913aad
+67	125	13591717878841523	../js/src/NodeHtmlParser.bs.js	bb02ee37c3913aad
