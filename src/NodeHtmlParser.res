@@ -33,7 +33,7 @@ let querySelectorAll = (htmlElement: htmlElement, selector: string): result<
   array<htmlElement>,
   exn,
 > =>
-  ResultExn.catchExn(() => {
+  ResultExn.tryExec(() => {
     let qsa: (htmlElement, string) => array<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.querySelectorAll(selector);
@@ -63,7 +63,7 @@ let querySelector = (htmlElement: htmlElement, selector: string): result<
   option<htmlElement>,
   exn,
 > =>
-  ResultExn.catchExn(() => {
+  ResultExn.tryExec(() => {
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.querySelector(selector);
@@ -74,7 +74,7 @@ let querySelector = (htmlElement: htmlElement, selector: string): result<
   })
 
 let closest = (htmlElement: htmlElement, selector: string): result<option<htmlElement>, exn> =>
-  ResultExn.catchExn(() => {
+  ResultExn.tryExec(() => {
     let qsa: (htmlElement, string) => option<htmlElement> = %raw(`
     function (htmlEl, selector) {
       const res = htmlEl.closest(selector);
@@ -94,7 +94,7 @@ let insertAdjacentHtmlMut = (htmlElement: htmlElement, where: where, html: strin
   htmlElement,
   exn,
 > =>
-  ResultExn.catchExn(() => {
+  ResultExn.tryExec(() => {
     let res: (htmlElement, where, string) => htmlElement = %raw(`
     function (htmlEl, where, html) {
       return htmlEl.insertAdjacentHTML(where, html);

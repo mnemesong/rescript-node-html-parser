@@ -1,6 +1,6 @@
 {
   "name": "rescript-node-html-parser",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "rescript api for node-html-parser package",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "mocha": "^10.2.0"
   },
   "dependencies": {
-    "rescript-result-exn": "^0.0.1",
+    "rescript-result-exn": "^0.1.1",
     "node-html-parser": "^6.1.11"
   }
 }
